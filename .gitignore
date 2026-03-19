@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+
+# SASS compiled output (source .scss files are tracked, not compiled css if generated)
+*.css.map
+
+# Node (if ever added)
+node_modules/
+npm-debug.log*
