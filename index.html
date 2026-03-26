@@ -99,16 +99,68 @@
       margin-bottom: 2.25rem;
     }
 
+    @keyframes rainbow-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 0px 0px rgba(255,255,255,0); }
+      50%       { box-shadow: 0 0 28px 8px rgba(255,255,255,0.3); }
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      margin: 0 auto 1.125rem;
+      isolation: isolate;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        hsl(40,75%,55%),
+        hsl(25,70%,52%),
+        hsl(10,65%,48%),
+        hsl(15,25%,46%),
+        hsl(200,50%,45%),
+        hsl(215,55%,40%),
+        hsl(30,70%,50%),
+        hsl(40,75%,55%)
+      );
+      filter: blur(5px);
+      animation: rainbow-spin 6s linear infinite;
+      z-index: -1;
+    }
+
     .avatar {
       width: 184px;
       height: 184px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--border);
-      margin-bottom: 1.125rem;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      position: relative;
+      top: 3px;
+      left: 3px;
+    }
+
+    /* Desktop hover — white glow pulses outside the rainbow ring */
+    @media (hover: hover) {
+      .avatar-wrap:hover {
+        animation: glow-pulse 1.5s ease-in-out infinite;
+      }
+    }
+
+    /* Mobile — flash on tap */
+    @media (hover: none) {
+      .avatar-wrap:active {
+        box-shadow: 0 0 24px 8px rgba(255,255,255,0.3);
+      }
     }
 
     h1 {
@@ -337,7 +389,9 @@
   <main>
 
     <section class="profile">
-      <img src="images/profile.jpg" alt="Tom Cocking" class="avatar">
+      <div class="avatar-wrap">
+        <img src="images/profile.jpg" alt="Tom Cocking" class="avatar">
+      </div>
       <h1>Tom Cocking</h1>
       <p class="titles">IT Analyst &nbsp;·&nbsp; Security Professional &nbsp;·&nbsp; Director</p>
       <p class="bio">
