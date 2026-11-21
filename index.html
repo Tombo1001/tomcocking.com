@@ -430,6 +430,35 @@
       stroke: none;
     }
 
+    /* Brand icons: grey at rest, real colours on row hover */
+    .link-icon.brand { position: relative; transition: background 0.18s; }
+    .link-icon.brand svg path { transition: stroke 0.18s, opacity 0.18s; }
+    .link-card:hover .brand-vl,
+    .link-card:focus-visible .brand-vl { background: #1d1d1f; }
+    .link-card:hover .brand-vl .vl-v,
+    .link-card:focus-visible .brand-vl .vl-v { stroke: #4fd1c5; opacity: 1; }
+    .link-card:hover .brand-vl .vl-l,
+    .link-card:focus-visible .brand-vl .vl-l { stroke: #f2f2f4; }
+
+    .brand-ds .ds-mono,
+    .brand-ds .ds-colour {
+      width: 1.4rem;
+      height: 1.4rem;
+      transition: opacity 0.18s;
+    }
+    .brand-ds .ds-mono {
+      background: currentColor;
+      -webkit-mask: url(images/datasolace.webp) center / contain no-repeat;
+      mask: url(images/datasolace.webp) center / contain no-repeat;
+    }
+    .brand-ds .ds-colour { position: absolute; opacity: 0; }
+    .link-card:hover .brand-ds .ds-mono,
+    .link-card:focus-visible .brand-ds .ds-mono { opacity: 0; }
+    .link-card:hover .brand-ds .ds-colour,
+    .link-card:focus-visible .brand-ds .ds-colour { opacity: 1; }
+    [data-theme="dark"] .link-card:hover .brand-ds,
+    [data-theme="dark"] .link-card:focus-visible .brand-ds { background: #f2f2f4; }
+
     .link-text { flex: 1; min-width: 0; }
     .link-label {
       display: block;
@@ -609,12 +638,9 @@
 
       <div class="link-group">
         <a href="https://datasolace.com/" class="link-card" target="_blank" rel="noopener">
-          <span class="link-icon">
-            <svg class="stroke" viewBox="0 0 24 24">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
+          <span class="link-icon brand brand-ds">
+            <span class="ds-mono"></span>
+            <img class="ds-colour" src="images/datasolace.webp" alt="" width="128" height="128">
           </span>
           <span class="link-text">
             <span class="link-label">DataSolace</span>
@@ -669,10 +695,10 @@
       </a>
 
       <a href="https://voiceloop.dev/" class="link-card" target="_blank" rel="noopener">
-        <span class="link-icon">
+        <span class="link-icon brand brand-vl">
           <svg viewBox="17 17 61 61" fill="none" stroke="currentColor" stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 36 39.5 68 55 36" opacity="0.6"/>
-            <path d="M71.5 27V68"/>
+            <path class="vl-v" d="M24 36 39.5 68 55 36" opacity="0.6"/>
+            <path class="vl-l" d="M71.5 27V68"/>
           </svg>
         </span>
         <span class="link-text">
