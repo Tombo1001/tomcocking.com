@@ -440,6 +440,15 @@
     .link-card:hover .brand-vl .vl-l,
     .link-card:focus-visible .brand-vl .vl-l { stroke: #f2f2f4; }
 
+    .link-icon.brand-ec0 svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+    .brand-ec0 svg * { transition: fill 0.18s, opacity 0.18s; }
+    .link-card:hover .brand-ec0,
+    .link-card:focus-visible .brand-ec0 { background: #18181b; }
+    .link-card:hover .brand-ec0 .ec0-prompt,
+    .link-card:focus-visible .brand-ec0 .ec0-prompt { fill: #55e23a; opacity: 1; }
+    .link-card:hover .brand-ec0 .ec0-cursor,
+    .link-card:focus-visible .brand-ec0 .ec0-cursor { fill: #d4d4d4; }
+
     .brand-ds .ds-mono,
     .brand-ds .ds-colour {
       width: 1.4rem;
@@ -681,10 +690,10 @@
       </div>
 
       <a href="https://exitcode0.net/" class="link-card" target="_blank" rel="noopener">
-        <span class="link-icon">
-          <svg class="stroke" viewBox="0 0 24 24">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
+        <span class="link-icon brand brand-ec0">
+          <svg viewBox="27.5 30 120 120">
+            <polygon class="ec0-prompt" points="30,59 86,80 86,93 30,114 30,102 70,86.5 30,71" opacity="0.6"/>
+            <rect class="ec0-cursor" x="110" y="106" width="36" height="16"/>
           </svg>
         </span>
         <span class="link-text">
